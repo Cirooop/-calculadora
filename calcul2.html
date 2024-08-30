@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Oscura</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="calcu.css">
+</head>
+<body>
+    <div class="calculadora">
+        <h1 class="titulo creepster-regular ">Calculadora</h1>
+        <div class="contenedorinputs">
+            <input type="text" id="operando1" placeholder="-" class="basta">
+            <input type="text" id="operando2" placeholder="-" class="basta">
+            <div class="botones">
+                <button id="suma">+</button>
+                <button id="resta">-</button>
+                <button id="multiplicacion">X</button>
+                <button id="division">/</button>
+            </div>
+            <!-- <input type="button" value="=" class="botonigual"> -->
+            <input type="text" id="resultado" placeholder="Resultado" readonly class="basta2">
+            <!-- <button>clear historial</button> -->
+        </div>
+    </div>
+    <video muted autoplay loop>
+        <source src="videofondo.mp4" type="video/mp4">
+    </video>
+    <div class="capa"></div>
+    
+    <div class="contenedorh">
+        <div id="historial" class="historial"></div>
+    </div>
+    <script src="calcu.js"></script>
+</body>
+</html>
