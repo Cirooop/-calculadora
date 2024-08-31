@@ -9,12 +9,12 @@ function calcular() {
     const num2 = parseFloat(operando2.value);
   
     if (isNaN(num1) || isNaN(num2)) {
-      resultado.value = "Error : Por favor, ingresa solo números.";
+      resultado.value = "Ingresa solo números.";
       return;
     }
   
     let operacion;
-    const buttonClicked = event.target;  // Get the button that was clicked
+    const buttonClicked = event.target;  // trae el boton clickeado despues lo llamaremos
   
     if (buttonClicked.textContent === "+") {
       operacion = num1 + num2;
@@ -24,20 +24,20 @@ function calcular() {
       operacion = num1 * num2;
     } else if (buttonClicked.textContent === "/") {
       if (num2 === 0) {
-        resultado.value = "Error: No se puede dividir por cero";
+        resultado.value = "No se puede dividir";
         return;
       }
       operacion = num1 / num2;
     }
   
     resultado.value = operacion;
-    operando1.value = ""; // Clear operando1 after calculation
-    operando2.value = ""; // Clear operando2 after calculation
+    operando1.value = ""; // limpia los inputs
+    operando2.value = ""; // limpia los inputs
     crearTarjeta(`${num1} ${buttonClicked.textContent} ${num2}`, operacion);
   }
   
-  // Add click event listener to each button
-  buttons.forEach(button => button.addEventListener('click', calcular));
+  // foreach para recoorer el array buttons y ver en cual de estos se produce un click
+  buttons.forEach(button => button.addEventListener('click', calcular));  // una vez clickea se ejecuta la funcion
 
 
   // tarjetas
@@ -45,13 +45,13 @@ function calcular() {
     const historial = document.getElementById('historial');
 
     const tarjeta = document.createElement('div');
-    tarjeta.classList.add('tarjeta');                     // Agrega una clase para estilos
+    tarjeta.classList.add('tarjeta');                     // agrega una clase para estilos
     tarjeta.textContent = `${operacion} = ${resultado}`;
 
     historial.appendChild(tarjeta);
 
     if (historial.children.length > 4) {
-        historial.removeChild(historial.firstChild);                //Aca vaciamos el
+        historial.removeChild(historial.firstChild);    //elimina el primero
     }
 }
 
